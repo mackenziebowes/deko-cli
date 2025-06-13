@@ -21,6 +21,12 @@ Download the repo with:
 git clone https://github.com/mackenziebowes/deko-cli.git
 ```
 
+Disconnect the remote
+
+```bash
+git remote remove origin
+```
+
 Install dependencies:
 
 ```bash

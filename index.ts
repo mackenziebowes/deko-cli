@@ -36,10 +36,12 @@ async function main() {
 		{
 			title: "Cloning Prisma...",
 			task: async (message) => {
-				await Bun.$`git clone https://github.com/mackenziebowes/deko-orm-prisma.git ./${group.name}/prisma`;
+				const loc = `./${group.name}/prisma`;
+				await Bun.$`git clone https://github.com/mackenziebowes/deko-orm-prisma.git ${loc}`;
 				if (group.install) {
-					await Bun.$`bun i`.cwd(`./${group.name}/prisma`);
+					await Bun.$`bun i`.cwd(loc);
 				}
+				await Bun.$`git remote remove origin`.cwd(loc);
 				return "Cloned Prisma";
 			},
 		},
@@ -49,10 +51,12 @@ async function main() {
 		{
 			title: "Cloning Solid...",
 			task: async (message) => {
-				await Bun.$`git clone https://github.com/mackenziebowes/deko-client-solid.git ./${group.name}/client`;
+				const loc = `./${group.name}/client`;
+				await Bun.$`git clone https://github.com/mackenziebowes/deko-client-solid.git ${loc}`;
 				if (group.install) {
-					await Bun.$`bun i`.cwd(`./${group.name}/client`);
+					await Bun.$`bun i`.cwd(loc);
 				}
+				await Bun.$`git remote remove origin`.cwd(loc);
 				return "Cloned Solid";
 			},
 		},
@@ -62,10 +66,12 @@ async function main() {
 		{
 			title: "Cloning Hono...",
 			task: async (message) => {
-				await Bun.$`git clone https://github.com/mackenziebowes/deko-server-hono.git ./${group.name}/server`;
+				const loc = `./${group.name}/server`;
+				await Bun.$`git clone https://github.com/mackenziebowes/deko-server-hono.git ${loc}`;
 				if (group.install) {
-					await Bun.$`bun i`.cwd(`./${group.name}/server`);
+					await Bun.$`bun i`.cwd(loc);
 				}
+				await Bun.$`git remote remove origin`.cwd(loc);
 				return "Cloned Hono";
 			},
 		},
